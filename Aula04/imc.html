@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule seu IMC</title>
+
+    <style>
+        body{
+
+            background-color: rgb(255, 255, 255); 
+            color:rgb(0, 0, 0);
+            font: normal 30pt Arial;
+            
+        }
+
+        h1 {
+
+        color:rgb(19, 30, 48);
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Calcule o seu IMC!</h1>
+
+    <form id="IMC">
+        <label for="massa">Massa:</label><br>
+        <input type="number" id="massa" name = "massa"><br><br>
+        
+        <label for="altura">Altura:</label><br>
+        <input type="number" id="alt" name = "alt"><br><br>
+        
+        <button type="button" onclick="submeterCalculo()">Calcular</button>
+    </form>
+    
+        <div id="resultado"></div>
+
+    <script src= "imc.js">
+
+    </script>
+
+</body>
+
+
+</html>
