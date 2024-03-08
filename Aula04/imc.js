@@ -10,22 +10,22 @@ function submeterCalculo() {
         classe = "Magreza"
     }
 
-    else if (18.5 < imc < 24.9){
+    else if (imc <= 24.9){
 
         classe = "Normal"
     }
 
-    else  if (24.9 < imc < 29.9){
+    else  if (imc <= 29.9){
 
         classe = "Sobrepeso"
     }
 
-    else if (29.9 < imc < 39.9){
+    else if (imc <= 39.9){
 
         classe = "Obesidade"
     }
 
-    else if (imc > 39.9){
+    else{
 
         classe = "Obesidade Grave"
     }
