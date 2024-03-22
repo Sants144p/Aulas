@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca Cor</title>
+
+    <style>
+        body{
+
+            background-color: rgb(223, 223, 223); 
+            color:rgb(0, 0, 0);
+            font: normal 14pt Arial;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Clique para trocar o Background</h1></br>
+
+    <input type="color" id = "corbg"></br>
+
+    <input type="button" value = "Trocar Cor" onclick = "trocabg()"></br></br>
+
+    <h2>Escreva um textinho</h2></br>
+
+    <input type = "text" id = "textoinserido" > <br/>
+
+    <input type="button" value = "Mudar Texto" onclick = "mudatxt()"></br></br>
+
+    <h3>Clique para mudar a cor do que você escreveu</h3>
+    
+    <input type="color" id = "cortxt"></br>
+    <input type="button" value = "Trocar Cor" onclick = "trocatxt()"></br>
+
+    <p id = "texto_final">Texto</p>
+
+    <script src = "trocacor.js"></script>
+
+</body>
+</html>
