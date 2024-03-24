@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Ordenar Strings</title>
+</head>
+<body>
+
+<label for="arrayStrings">Array de Strings (separado por vírgulas):</label>
+<input type="text" id="arrayStrings">
+<button onclick="ordenarStrings()">Ordenar</button>
+
+<p>Array Ordenado: <span id="resultado"></span></p>
+
+<script>
+function ordenarStrings() {
+    var array = document.getElementById('arrayStrings').value.split(',');
+    var arrayOrdenado = array.sort();
+    document.getElementById('resultado').innerText = arrayOrdenado.join(', ');
+}
+</script>
+
+</body>
+</html>
+

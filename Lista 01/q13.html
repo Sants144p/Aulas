@@ -1,0 +1,24 @@
+<DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Remover Espaços</title>
+</head>
+<body>
+
+<label for="texto">Texto:</label>
+<input type="text" id="texto">
+<button onclick="removerEspacos()">Remover Espaços</button>
+
+<p>Texto sem espaços: <span id="resultado"></span></p>
+
+<script>
+function removerEspacos() {
+    var texto = document.getElementById('texto').value;
+    var textoSemEspacos = texto.replace(/\s+/g, '');
+    document.getElementById('resultado').innerText = textoSemEspacos;
+}
+</script>
+
+</body>
+</html>

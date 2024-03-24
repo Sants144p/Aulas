@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria de Imagens</title>
+    <style>
+        #galeria img {
+            margin: 5px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Adicionar Imagem à Galeria</h2>
+<label for="urlImagem">URL da Imagem:</label>
+<input type="text" id="urlImagem">
+<button onclick="adicionarImagem()">Adicionar</button>
+
+<h2>Galeria de Imagens</h2>
+<div id="galeria"></div>
+
+<script>
+function adicionarImagem() {
+    var url = document.getElementById('urlImagem').value;
+    if (!url) {
+        alert("Por favor, insira o URL da imagem.");
+        return;
+    }
+
+    var galeria = document.getElementById('galeria');
+    var img = document.createElement('img');
+    img.src = url;
+    img.style.width = "100px";
+    img.style.height = "100px";
+    img.style.objectFit = "cover";
+    img.alt = "Imagem da Galeria";
+
+    galeria.appendChild(img);
+
+    // Limpar o campo de entrada após adicionar a imagem
+    document.getElementById('urlImagem').value = '';
+}
+</script>
+
+</body>
+</html>
+
+​

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Interativo</title>
+</head>
+<body>
+
+<div id="quiz"></div>
+<button onclick="proximaPergunta()">Próxima</button>
+
+<script>
+var perguntas = [
+    { pergunta: "Qual a capital da França?", respostas: ["Paris", "Londres", "Berlim"], correta: 0 },
+    { pergunta: "Quem pintou a Mona Lisa?", respostas: ["Michelangelo", "Leonardo da Vinci", "Rafael"], correta: 1 },
+    { pergunta: "Qual é o maior planeta do sistema solar?", respostas: ["Júpiter", "Saturno", "Terra"], correta: 0 }
+];
+var indiceAtual = 0;
+var pontuacao = 0;
+
+function mostrarPergunta() {
+    if (indiceAtual >= perguntas.length) {
+        document.getElementById('quiz').innerHTML = `Quiz concluído! Sua pontuação: ${pontuacao}`;
+        return;
+    }
+
+    var quizDiv = document.getElementById('quiz');
+    quizDiv.innerHTML = `<h2>${perguntas[indiceAtual].pergunta}</h2>`;
+
+    perguntas[indiceAtual].respostas.forEach((resposta, indice) => {
+        var botao = document.createElement('button');
+        botao.textContent = resposta;
+        botao.onclick = function() { responder(indice); };
+        quizDiv.appendChild(botao);
+    });
+}
+
+function responder(indice) {
+    if (indice === perguntas[indiceAtual].correta) {
+        pontuacao++;
+    }
+    indiceAtual++;
+    mostrarPergunta();
+}
+
+function proximaPergunta() {
+    indiceAtual++;
+    mostrarPergunta();
+}
+
+mostrarPergunta();
+</script>
+
+</body>
+</html>

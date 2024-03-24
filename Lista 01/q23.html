@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Controle de Estoque</title>
+</head>
+<body>
+
+<h2>Adicionar Item ao Estoque</h2>
+<label for="nomeItem">Nome:</label>
+<input type="text" id="nomeItem">
+<label for="quantidadeItem">Quantidade:</label>
+<input type="number" id="quantidadeItem">
+<label for="categoriaItem">Categoria:</label>
+<select id="categoriaItem">
+    <option value="Alimentos">Alimentos</option>
+    <option value="Bebidas">Bebidas</option>
+    <option value="Limpeza">Limpeza</option>
+</select>
+<button onclick="adicionarItem()">Adicionar</button>
+
+<h2>Itens no Estoque</h2>
+<ul id="listaEstoque"></ul>
+
+<script>
+var estoque = [];
+
+function adicionarItem() {
+    var nome = document.getElementById('nomeItem').value;
+    var quantidade = parseInt(document.getElementById('quantidadeItem').value);
+    var categoria = document.getElementById('categoriaItem').value;
+    estoque.push({ nome, quantidade, categoria });
+    atualizarLista();
+}
+
+function atualizarLista() {
+    var lista = document.getElementById('listaEstoque');
+    lista.innerHTML = '';
+    estoque.forEach((item, index) => {
+        var elemento = document.createElement('li');
+        elemento.textContent = `${item.nome} - Quantidade: ${item.quantidade} - Categoria: ${item.categoria}`;
+        var botaoRemover = document.createElement('button');
+        botaoRemover.textContent = 'Remover';
+        botaoRemover.onclick = function() { removerItem(index); };
+        elemento.appendChild(botaoRemover);
+        lista.appendChild(elemento);
+    });
+}
+
+function removerItem(index) {
+    estoque.splice(index, 1);
+    atualizarLista();
+}
+</script>
+
+</body>
+</html>

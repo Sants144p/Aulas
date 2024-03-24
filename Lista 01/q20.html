@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Formulário de Cadastro com Validação</title>
+</head>
+<body>
+
+<form id="formularioCadastro">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome">
+    <br>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email">
+    <br>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha">
+    <br>
+    <label for="confirmacaoSenha">Confirmação de Senha:</label>
+    <input type="password" id="confirmacaoSenha">
+    <br>
+    <button type="button" onclick="validarCadastro()">Registrar</button>
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function validarCadastro() {
+    var nome = document.getElementById('nome').value;
+    var email = document.getElementById('email').value;
+    var senha = document.getElementById('senha').value;
+    var confirmacaoSenha = document.getElementById('confirmacaoSenha').value;
+
+    if (!nome || !email || !senha || !confirmacaoSenha) {
+        document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos.';
+        return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+        document.getElementById('resultado').innerText = 'Por favor, insira um e-mail válido.';
+        return;
+    }
+
+    if (senha.length < 8 || !/\d/.test(senha) || !/[a-zA-Z]/.test(senha)) {
+        document.getElementById('resultado').innerText = 'A senha deve ter pelo menos 8 caracteres e incluir números e letras.';
+        return;
+    }
+
+    if (senha !== confirmacaoSenha) {
+        document.getElementById('resultado').innerText = 'A senha e a confirmação de senha não coincidem.';
+        return;
+    }
+
+    document.getElementById('resultado').innerText = 'Cadastro realizado com sucesso!';
+}
+</script>
+
+</body>
+</html>

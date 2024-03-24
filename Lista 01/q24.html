@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Agenda de Contatos</title>
+</head>
+<body>
+
+<h2>Adicionar Contato</h2>
+<label for="nomeContato">Nome:</label>
+<input type="text" id="nomeContato">
+<label for="telefoneContato">Telefone:</label>
+<input type="text" id="telefoneContato">
+<label for="emailContato">E-mail:</label>
+<input type="email" id="emailContato">
+<button onclick="adicionarContato()">Adicionar</button>
+
+<h2>Contatos</h2>
+<ul id="listaContatos"></ul>
+
+<script>
+var contatos = [];
+
+function adicionarContato() {
+    var nome = document.getElementById('nomeContato').value;
+    var telefone = document.getElementById('telefoneContato').value;
+    var email = document.getElementById('emailContato').value;
+    contatos.push({ nome, telefone, email });
+    atualizarLista();
+}
+
+function atualizarLista() {
+    var lista = document.getElementById('listaContatos');
+    lista.innerHTML = '';
+    contatos.forEach((contato, index) => {
+        var elemento = document.createElement('li');
+        elemento.textContent = `${contato.nome} - ${contato.telefone} - ${contato.email}`;
+        var botaoRemover = document.createElement('button');
+        botaoRemover.textContent = 'Remover';
+        botaoRemover.onclick = function() { removerContato(index); };
+        elemento.appendChild(botaoRemover);
+        lista.appendChild(elemento);
+    });
+}
+
+function removerContato(index) {
+    contatos.splice(index, 1);
+    atualizarLista();
+}
+</script>
+
+</body>
+</html>

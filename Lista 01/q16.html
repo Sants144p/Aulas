@@ -1,0 +1,26 @@
+<DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Contar Palavras</title>
+</head>
+<body>
+
+<label for="texto">Texto:</label>
+<input type="text" id="texto">
+<button onclick="contarPalavras()">Contar Palavras</button>
+
+<p>Número de Palavras: <span id="resultado"></span></p>
+
+<script>
+function contarPalavras() {
+    var texto = document.getElementById('texto').value.trim();
+    var totalPalavras = texto === "" ? 0 : texto.split(/\s+/).length;
+    document.getElementById('resultado').innerText = totalPalavras;
+}
+
+// /\s+/    / = delimita ; \s = qualquer caractere de espaço em branco ; + = "\s" deve aparecer uma ou mais vezes
+</script>
+
+</body>
+</html>

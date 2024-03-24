@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Substituir Palavras</title>
+</head>
+<body>
+
+<label for="textoOriginal">Texto Original:</label>
+<input type="text" id="textoOriginal">
+<label for="palavraProcurada">Procurar Palavra:</label>
+<input type="text" id="palavraProcurada">
+<label for="palavraSubstituta">Substituir Por:</label>
+<input type="text" id="palavraSubstituta">
+<button onclick="substituirPalavras()">Substituir</button>
+
+<p>Texto Modificado: <span id="resultado"></span></p>
+
+<script>
+function substituirPalavras() {
+    var texto = document.getElementById('textoOriginal').value;
+    var procurada = document.getElementById('palavraProcurada').value;
+    var substituta = document.getElementById('palavraSubstituta').value;
+    var textoModificado = texto.replace(new RegExp(procurada, 'g'), substituta);
+    document.getElementById('resultado').innerText = textoModificado;
+}
+
+/* 
+new RegExp(pattern, flags):
+é uma forma de criar objetos de expressão regular em JavaScript. 
+Expressões regulares são padrões usados para fazer correspondência com sequências de caracteres em strings.
+
+pattern: É o padrão da expressão regular, ou seja, o texto que você deseja fazer correspondência.
+
+flags (opcional): São as opções que podem ser adicionadas à expressão regular, como "g" (correspondência global), 
+"i" (correspondência sem diferenciação entre maiúsculas e minúsculas), "m" (correspondência em várias linhas), 
+entre outras.
+*/
+</script>
+
+</body>
+</html>

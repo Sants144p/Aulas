@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Validação de Telefone</title>
+</head>
+<body>
+
+<label for="telefone">Número de Telefone:</label>
+<input type="text" id="telefone">
+<button onclick="validarTelefone()">Validar</button>
+
+<p>Resultado: <span id="resultado"></span></p>
+
+<script>
+function validarTelefone() {
+    var telefone = document.getElementById('telefone').value;
+    //Utilização de expressão regular
+    var padrao = /^\(?\d{2}\)?[\s-]?\d{4,5}[-]?\d{4}$/; // Padrão pode variar conforme o país
+    var resultado = padrao.test(telefone) ? 'Válido' : 'Inválido';
+    document.getElementById('resultado').innerText = resultado;
+}
+</script>
+
+</body>
+</html>
+

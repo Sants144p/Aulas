@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Verificar Palíndromo</title>
+</head>
+<body>
+
+<label for="texto">Texto:</label>
+<input type="text" id="texto">
+<button onclick="verificarPalindromo()">Verificar Palíndromo</button>
+
+<p>Resultado: <span id="resultado"></span></p>
+
+<script>
+function verificarPalindromo() {
+		//Utilização de expressão regular
+    var texto = document.getElementById('texto').value.replace(/\s+/g, '').toLowerCase();
+    var textoReverso = texto.split('').reverse().join('');
+    var resultado = texto === textoReverso ? 'É um palíndromo' : 'Não é um palíndromo';
+    document.getElementById('resultado').innerText = resultado;
+}
+</script>
+
+</body>
+</html>
