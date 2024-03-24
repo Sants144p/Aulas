@@ -1,32 +1,61 @@
+let lista = []
+
 function submitar(){
 
-    let lista = []
     let num = document.getElementById("num").value
     let tipo_ordem = document.querySelector('input[name="ordem"]:checked').value
 
-    lista.push(num)
+    if (!tipo_ordem) {
 
-    console.log(lista)
+        window.alert("Selecione uma ordem");
+        return;
+
+    }
+
+    if (num === ""){
+
+        if (tipo_ordem === "crescente"){
+
+            lista == lista.sort()
+    
+            document.getElementById('resultado').innerHTML = `${lista}`
+        }
+        else if (tipo_ordem === "decrescente"){
+        
+            lista == lista.sort()
+            lista == lista.reverse()
+    
+            document.getElementById('resultado').innerHTML = `${lista}`
+    
+        }
+        return
+
+    }else if (lista.includes(num)){
+
+        window.alert("Este número já está presente na lista, digite outro")
+        return
+
+    }else{
+
+        lista.push(num)
+
+    }
+
+
+
 
     if (tipo_ordem === "crescente"){
 
-        lista.split("")
-        lista.sort()
+        lista == lista.sort()
 
         document.getElementById('resultado').innerHTML = `${lista}`
     }
     else if (tipo_ordem === "decrescente"){
-
-        lista = lista.split("")
-        lista = lista.sort()
-        lista = lista.reverse()
+        
+        lista == lista.sort()
+        lista == lista.reverse()
 
         document.getElementById('resultado').innerHTML = `${lista}`
-
-    }
-    else{
-
-        window.alert("Selecione uma ordem")
 
     }
 
@@ -35,6 +64,8 @@ function submitar(){
 
 function limpar(){
 
-    lista = []
+    lista = [] 
+    document.getElementById('resultado').innerHTML = `${lista}`
+    document.getElementById('resultado').innerHTML = `[]`
 
 }
