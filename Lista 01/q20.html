@@ -8,21 +8,22 @@
 
 <form id="formularioCadastro">
     <label for="nome">Nome:</label>
-    <input type="text" id="nome">
+    <input type="text" id="nome"><br>
     <br>
     <label for="email">E-mail:</label>
-    <input type="email" id="email">
+    <input type="email" id="email"><br>
     <br>
     <label for="senha">Senha:</label>
-    <input type="password" id="senha">
+    <input type="password" id="senha"><br>
     <br>
     <label for="confirmacaoSenha">Confirmação de Senha:</label>
-    <input type="password" id="confirmacaoSenha">
+    <input type="password" id="confirmacaoSenha"><br>
     <br>
     <button type="button" onclick="validarCadastro()">Registrar</button>
 </form>
 
 <p id="resultado"></p>
+<p id="foto"></p>
 
 <script>
 function validarCadastro() {
@@ -33,25 +34,33 @@ function validarCadastro() {
 
     if (!nome || !email || !senha || !confirmacaoSenha) {
         document.getElementById('resultado').innerText = 'Por favor, preencha todos os campos.';
+        document.getElementById('foto').innerHTML = '<img src = "ednaldo bravo.jpg">'
         return;
     }
 
     if (!email.includes('@') || !email.includes('.')) {
         document.getElementById('resultado').innerText = 'Por favor, insira um e-mail válido.';
+        document.getElementById('foto').innerHTML = '<img src = "ednaldo bravo.jpg">'
         return;
     }
 
     if (senha.length < 8 || !/\d/.test(senha) || !/[a-zA-Z]/.test(senha)) {
         document.getElementById('resultado').innerText = 'A senha deve ter pelo menos 8 caracteres e incluir números e letras.';
+        document.getElementById('foto').innerHTML = '<img src = "ednaldo bravo.jpg">'
         return;
     }
 
     if (senha !== confirmacaoSenha) {
         document.getElementById('resultado').innerText = 'A senha e a confirmação de senha não coincidem.';
+        document.getElementById('foto').innerHTML = '<img src = "ednaldo bravo.jpg">'
         return;
     }
 
     document.getElementById('resultado').innerText = 'Cadastro realizado com sucesso!';
+    
+    document.getElementById('foto').innerHTML = '<img src = "ednaldo.jpg">'
+
+    
 }
 </script>
 
