@@ -5,8 +5,8 @@
 <title>Cadastro de Produtos</title>
 <style>
     table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
+        border: 2px solid black;
+        border-collapse: separate;
     }
     th, td {
         padding: 10px;
@@ -29,6 +29,7 @@
         <option value="Eletrodomésticos">Eletrodomésticos</option>
         <option value="Móveis">Móveis</option>
         <option value="Vestuário">Vestuário</option>
+        <option value="Alimento">Alimento</option>
     </select>
     <br>
     <label for="descricaoProduto">Descrição:</label>
@@ -38,7 +39,7 @@
 </form>
 
 <h2>Produtos Cadastrados</h2>
-<table id="tabelaProdutos">
+<table id="tabelaProdutos" >
     <tr>
         <th>Nome</th>
         <th>Preço</th>
@@ -46,6 +47,8 @@
         <th>Descrição</th>
     </tr>
 </table>
+
+</body>
 
 <script>
 function adicionarProduto() {
@@ -67,7 +70,11 @@ function adicionarProduto() {
     var celulaDescricao = novaLinha.insertCell(3);
 
     celulaNome.textContent = nome;
-    celulaPreco.textContent = preco;
+    if (preco % 2 == 0){
+        celulaPreco.textContent = "R$"+preco+",00";
+    }else{
+        celulaPreco.textContent = "R$"+preco;
+    }
     celulaCategoria.textContent = categoria;
     celulaDescricao.textContent = descricao;
 
@@ -75,6 +82,6 @@ function adicionarProduto() {
 }
 </script>
 
-</body>
+
 </html>
 
