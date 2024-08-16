@@ -10,7 +10,7 @@ function displayUsers(users) {
     const userList = document.getElementById('user-list');
     userList.innerHTML = '';
 
-    users.forEach(user => {
+    uesrs.forEach(user => {
         const userElement = document.createElement('div');
         //userElement.classList.add('user');
         userElement.innerHTML = `
