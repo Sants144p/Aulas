@@ -1,5 +1,16 @@
 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
+let users = ['usuários']
+
+fetch(apiUsers)
+    .then(response => response.json())
+    .then(json_data => {
+        json_data.forEach(user => {
+        users.push(user.name);
+  });
+});
+
+
 fetch(apiUrl)
     .then(response => response.json())
     .then(users => displayUsers(users))
@@ -10,7 +21,7 @@ function displayUsers(users) {
     const userList = document.getElementById('user-list');
     userList.innerHTML = '';
 
-    uesrs.forEach(user => {
+    users.forEach(user => {
         const userElement = document.createElement('div');
         //userElement.classList.add('user');
         userElement.innerHTML = `
