@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questão 03</title>
+    <title>Q5</title>
+
     <style>
         
         body { 
@@ -18,16 +20,18 @@
         .error { color: red; }
 
     </style>
+    
 </head>
 <body>
-    <h1>Exibir jogos dos Times</h1>
-    <p1>Times que disputaram: ...</p1></br></br>
 
-    <input id= "equipe" type="text" placeholder="Digite o nome do time">
-    <button onclick="buscarJogos()">Buscar Jogos</button>
+    <h1>Lista de Atividades</h1>
+    Usuário: <input type="number" id="user_id"> (1 a 100)
+    <button onclick="Listar()">Listar</button>
+    <ol id="atividades">
 
-    <p id="resultado"></p>
+    </ol>
+    
+    <script src="geiser5.js"></script>
 
-    <script src="jsonq3.js"></script>
 </body>
 </html>

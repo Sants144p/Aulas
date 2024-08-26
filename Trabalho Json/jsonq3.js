@@ -1,5 +1,6 @@
 function buscarJogos(){
-    const nomeEquipe = document.getElementById('equipe').value.trim();
+    const nomeEquipe = document.getElementById('equipe').value
+    console.log(nomeEquipe)
     if (!nomeEquipe) {
         alert('Por favor, digite o nome da equipe.');
         return;
@@ -16,12 +17,13 @@ function buscarJogos(){
 
     const result = jogosEquipe.map(jogo => {
         return `
-            </br>
+            <div>
             Data: ${jogo.datetime} </br>
             Disputa: ${jogo.home_team.name} x ${jogo.away_team.name} </br>
             Placar: ${jogo.home_score} - ${jogo.away_score} </br>
             Localização: ${jogo.location} </br>
             Estádio: ${jogo.venue} </br>
+            </div>
     `
     }).join('');
 
@@ -29,4 +31,3 @@ function buscarJogos(){
     })
 
 }
-
