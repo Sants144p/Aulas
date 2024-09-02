@@ -1,4 +1,4 @@
-function buscarJogos(){
+async function buscarJogos(){
     const nomeEquipe = document.getElementById('equipe').value
     console.log(nomeEquipe)
     if (!nomeEquipe) {
@@ -9,7 +9,7 @@ function buscarJogos(){
     const url_jogos = 'https://worldcupjson.net/matches';
     const arq_bandeiras = 'flags.json'
 
-    fetch(arq_bandeiras)
+    await fetch(arq_bandeiras)
         .then(response => response.json())
         .then(data => {
             const bandeiraUrl = data[nomeEquipe];
@@ -21,7 +21,7 @@ function buscarJogos(){
             }
         })
 
-    fetch(url_jogos)
+    await fetch(url_jogos)
         .then(response => response.json())
         .then(data => {
             const jogosEquipe = data.filter(jogo => {
