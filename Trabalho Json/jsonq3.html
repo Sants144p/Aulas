@@ -3,28 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questão 03</title>
+    <title>Questão 03 XX</title>
     <style>
         
         body { 
             font-family: Arial, sans-serif; 
             margin: 20px; 
+            background-color: #f5f5dc
         }
         div { 
+            background-color: rgb(243, 243, 243);
             border: 1px solid #ccc; 
             padding: 15px; margin-bottom: 15px; 
             border-radius: 15px; 
         }
         .error { color: red; }
 
+        #flag {
+            border: 1px solid black; 
+            max-width: 100%; 
+            height: auto; 
+        }
+
+
     </style>
 </head>
 <body>
-    <h1>Exibir jogos dos Times</h1>
-    <p1>Times que disputaram: ...</p1></br></br>
+    <h1>Exibidor dos jogos das Seleções</h1>
 
-    <input id= "equipe" type="text" placeholder="Digite o nome do time">
-    <button onclick="buscarJogos()">Buscar Jogos</button>
+    <select id="equipe" onchange="buscarJogos()">
+        <option value="">Selecione um time...</option>
+        <option value="Qatar">Qatar</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Senegal">Senegal</option>
+        <option value="Ecuador">Ecuador</option>
+        <option value="England">England</option>
+        <option value="Wales">Wales</option>
+        <option value="Iran">Iran</option>
+        <option value="United States">United States</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Poland">Poland</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+        <option value="Tunisia">Tunisia</option>
+        <option value="Australia">Australia</option>
+        <option value="Denmark">Denmark</option>
+        <option value="France">France</option>
+        <option value="Spain">Spain</option>
+        <option value="Japan">Japan</option>
+        <option value="Japan">Japan</option>
+        <option value="Costa Rica">Costa Rica</option>
+        <option value="Germany">Germany</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Croatia">Croatia</option>
+        <option value="Canada">Canada</option>
+        <option value="Morocco">Morocco</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Serbia">Serbia</option>    
+        <option value="Cameroon">Cameroon</option>    
+        <option value="Switzerland">Switzerland</option>    
+        <option value="Ghana">Ghana</option>    
+        <option value="Uruguay">Uruguay</option>     
+        <option value="Portugal">Portugal</option>  
+        <option value="Korea Republic">Korea Republic</option>     
+    </select>
+
+    </br>
+    </br>
+
+    <img id="flag"></br>
+
+    </br>
 
     <p id="resultado"></p>
 
