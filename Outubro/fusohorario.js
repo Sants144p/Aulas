@@ -27,7 +27,13 @@ function exibir_fuso(){
     .then(data => {
 
         const datetime = data.datetime
-        result.innerHTML = `<b>${timezone}: ${datetime}<br>`
+        const [data, hora] = datetime.split('T')
+        const [ano, mes, dia] = data.split('-')
+        data = `${dia}/${mes}/${ano}`
+        hora = hora.split('.')[0]
+
+        result.innerHTML += `<br><b>${timezone}</b>: ${data} ${hora}`
+
 
 
     })
