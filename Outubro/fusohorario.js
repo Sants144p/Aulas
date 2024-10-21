@@ -1,34 +1,31 @@
+/*
 const api = "https://worldtimeapi.org/api/timezone"
-result = document.getElementById("result")
+const result = document.getElementById("resultado")
+const select = document.getElementById("timezones")
 
 fetch(api) 
-    .then(response => response.json())
-    .then(fusos => pegarfusos(fusos))
-
-
-function pegarfusos(fusos){
-
-    let select = document.getElementById("select")
-
-    for (let fuso of fusos){ //Percorrer a lista
-
-        let option = new Option(fuso);
-        select.options[select.options.length] = option;
-    }
-}
+.then(response => response.json())
+.then(fusos => {
+    fusos.forEach(fuso => {
+        const option = document.createElement('option');
+        option.value = fuso;
+        option.textContent = fuso
+        select.appendChild(option);
+        });
+});
 
 function exibir_fuso(){
 
-    const timezone = document.getElementById("select").value
+    const timezone = document.getElementById("timezones").value
     const url = `https://worldtimeapi.org/api/timezone/${timezone}`
 
     fetch(url) 
     .then(response => response.json())
     .then(data => {
 
-        const datetime = data.datetime
-        const [data, hora] = datetime.split('T')
-        const [ano, mes, dia] = data.split('-')
+        let datetime = data.datetime
+        let [data, hora] = datetime.split('T')
+        let [ano, mes, dia] = data.split('-')
         data = `${dia}/${mes}/${ano}`
         hora = hora.split('.')[0]
 
@@ -38,11 +35,41 @@ function exibir_fuso(){
 
     })
 
-
-
-
-
 }
+*/
+
+const url = "https://worldtimeapi.org/api/timezone";
+const select = document.getElementById('timezones');
+const resultado = document.getElementById('resultado');
+
+fetch(url)
+.then(response => response.json())
+.then(timezones => {
+    timezones.forEach(timezone => {
+        const option = document.createElement('option');
+        option.value = timezone;
+        option.textContent = timezone;
+        select.appendChild(option);
+    });
+});
+
+function exibir_fuso() {
+    const timezone = document.getElementById('timezones').value;
+    const urltimezone = `https://worldtimeapi.org/api/timezone/${timezone}`;
+    
+    fetch(urltimezone)
+        .then(response => response.json())
+        .then(fuso => {
+            const datetime = fuso.datetime;
+            let [data, hora] = datetime.split('T');
+            const [ano, mes, dia] = data.split('-');
+            data = `${dia}/${mes}/${ano}`;
+            hora = hora.split('.')[0];
+            resultado.innerHTML += 
+               `<br><b>${timezone}</b>: ${data} ${hora} (${datetime})<br>`;
+        });
+}
+
 
 
 
