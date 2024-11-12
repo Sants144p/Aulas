@@ -2,35 +2,25 @@
 Crie um metodo que retorne uma string com o título, autor e preço do livro */
 
 class Livro {
-
-    titulo: string
-    autor: string
-    preco: number
-
-    constructor(titulo: string, autor: string, preco: number){
-
-        this.titulo = titulo
-        this.autor = autor
-        this.preco = preco
-
+    private _titulo : string;
+    private _autor : string;
+    private _preco : number;
+    constructor(titulo : string, autor : string, preco : number) {
+        this._titulo = titulo;
+        this._autor = autor;
+        this._preco = preco;
     }
-
-    setPreco(novo_preco : number) : void{
-
-        if (novo_preco >= 0){
-        this.preco = novo_preco            
-        }else{
-            console.log("Valor Inválido")
-
-        }
-
+    get preco() {
+        return this._preco;
     }
-
-    retorno(): string{
-
-        return ` Livro: ${this.titulo} \n Autor(a): ${this.autor} \n Preço R$${this.preco.toFixed(2)}`
+    set preco(novo_preco : number) {
+        if (novo_preco >= 0)
+            this._preco = novo_preco;
+        else 
+            console.log("Não permitido valor negativo!");
     }
-
+    retorno() : string {
+        return `Livro: ${this._titulo}\nAutor: ${this._autor}\nPreço: R$ ${this._preco.toFixed(2)}`;    }
 }
 
 let livro1 = new Livro("Assim falou Zaratustra", "Friedrich Nietzsche", 29.99)
@@ -41,7 +31,7 @@ let livro3 = new Livro("Além do bem e do Mal", "Friedrich Nietzsche", -15.99)
 
 
 
-let livros : Livro[] = [livro1, livro2]
+let livros : Livro[] = [livro1, livro2, livro3]
 livros.forEach(livro =>{
 
     console.log(livro.retorno())
@@ -49,3 +39,5 @@ livros.forEach(livro =>{
 
 })
 
+livro3.preco = 15.99;
+console.log(livro3.retorno());
