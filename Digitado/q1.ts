@@ -2,17 +2,21 @@
 Crie um metodo que retorne uma string com o título, autor e preço do livro */
 
 class Livro {
+
     private _titulo : string;
     private _autor : string;
     private _preco : number;
+
     constructor(titulo : string, autor : string, preco : number) {
         this._titulo = titulo;
         this._autor = autor;
         this._preco = preco;
     }
+
     get preco() {
         return this._preco;
     }
+
     set preco(novo_preco : number) {
         if (novo_preco >= 0)
             this._preco = novo_preco;
@@ -22,6 +26,7 @@ class Livro {
     retorno() : string {
         return `Livro: ${this._titulo}\nAutor: ${this._autor}\nPreço: R$ ${this._preco.toFixed(2)}`;    }
 }
+
 
 let livro1 = new Livro("Assim falou Zaratustra", "Friedrich Nietzsche", 29.99)
 

@@ -32,5 +32,3 @@ livros.forEach(function (livro) {
     console.log(livro.retorno());
     console.log("----------------------------------------------");
 });
-livro3.preco = 15.99;
-console.log(livro3.retorno());
