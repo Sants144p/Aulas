@@ -12,11 +12,11 @@ Crie uma subclasse LivroDigital, que além dos atributos herdados, tem o atribut
 Implemente o método descricao em LivroDigital para incluir o formato do livro na saída.
 */
 
-class Livro {
+export class Livro {
 
-    private _titulo : string;
-    private _autor : string;
-    private _preco : number;
+    protected _titulo : string;
+    protected _autor : string;
+    protected _preco : number;
 
     constructor(titulo : string, autor : string, preco : number) {
         this._titulo = titulo;
@@ -38,13 +38,13 @@ class Livro {
         return `Livro: ${this._titulo}\nAutor: ${this._autor}\nPreço: R$ ${this._preco.toFixed(2)}`;    }
 }
 
-class LivroDigital extends Livro{
+export class LivroDigital extends Livro{
+
+    protected formato : string //.PDF, ePUB, MOBI etc...
 
     constructor(titulo : string, autor : string, preco : number, formato : string){
 
-    super( titulo)
-    super(autor)    
-    super(preco)
+    super(titulo, autor, preco)
     this.formato = formato
 
     }
@@ -54,9 +54,9 @@ class LivroDigital extends Livro{
 
 }
 
-class Biblioteca {
+export class Biblioteca {
 
-    private livros : Livro[] = []
+    protected livros : Livro[] = []
 
     /* 
     contructor(livros : Livro[]){
@@ -72,6 +72,13 @@ class Biblioteca {
     console.log("Livro Adicionado")
 
     }
+
+    AdicionarLivroDigital(livrod: LivroDigital) : void{
+    
+        this.livros.push(livrod)
+        console.log("Livro Digital Adicionado")
+    
+        }
 
     listarLivros() : void{
 
@@ -103,9 +110,10 @@ Biblio.AdicionarLivro(livro2)
 Biblio.AdicionarLivro(livro3)
 Biblio.listarLivros()
 
+Biblio.AdicionarLivroDigital(ld1)
 Biblio.AdicionarLivro( new Livro("O Anticristo", "Friedrich Nietzsche", 24.99))
 livro3.preco = 15.99;
-//Biblio.listarLivros()
+Biblio.listarLivros()
 
 /*
 let vetor: Livro[] = [livro1, livro2, livro3, livro4]
